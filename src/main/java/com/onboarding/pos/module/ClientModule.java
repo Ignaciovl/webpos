@@ -227,7 +227,7 @@ public class ClientModule extends Module<Client> {
 		return client;
 	}
 
-	private Client askForClientInformationForUpdate() {//TODO fix¡¡¡
+	private Client askForClientInformationForUpdate() {
 		String idNumber = getSystemHelper().askString("\nClient Id Number: ");
 		Client client = getManager().findByIdNumber(idNumber);
 		if (client == null) {
