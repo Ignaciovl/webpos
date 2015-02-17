@@ -33,7 +33,7 @@ public class BasicConfig {
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("org.postgresql.Driver");
-		dataSource.setUrl("jdbc:postgresql://localhost:5432/modelpos?autoReconnect=true");
+		dataSource.setUrl("jdbc:postgresql://NI-NTB-064:5432/modelpos?autoReconnect=true");
 		dataSource.setUsername("postgres");
 		dataSource.setPassword("postgres");
 
