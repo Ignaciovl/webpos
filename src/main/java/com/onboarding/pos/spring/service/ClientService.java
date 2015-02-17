@@ -2,65 +2,42 @@ package com.onboarding.pos.spring.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.onboarding.pos.exception.entity.EntityException;
-import com.onboarding.pos.model.Client;
-import com.onboarding.pos.spring.manager.ClientSpringHibernateManager;
+import com.onboarding.pos.spring.config.model.Client;
+import com.onboarding.pos.spring.repository.ClientRepository;
 
 @Service
-public class ClientService implements EntityService<Client> {
+public class ClientService {
 	
-	private ClientSpringHibernateManager clientSpringHibernateManager;
-
-	public ClientSpringHibernateManager getClientSpringHibernateManager() {
-		return clientSpringHibernateManager;
+	@Autowired
+	ClientRepository clientRepository;
+	
+	public long count() {
+		return clientRepository.count();
 	}
-
-	public void setClientSpringHibernateManager(
-			ClientSpringHibernateManager clientSpringHibernateManager) {
-		this.clientSpringHibernateManager = clientSpringHibernateManager;
-	}
-
-	@Override
-	@Transactional
-	public long countAll() {
-		return getClientSpringHibernateManager().countAll();
-	}
-
-	@Override
-	@Transactional
+	
 	public List<Client> findAll() {
-		return getClientSpringHibernateManager().findAll();
+		return clientRepository.findAll();
 	}
-
-	@Override
-	@Transactional
-	public Client findById(int id) {
-		return getClientSpringHibernateManager().findById(id);
+	
+	public Client findOne(Integer id) {
+		return clientRepository.findOne(id);
 	}
-
-	@Transactional
-	public Client findByIdNumber(String idNumber) {
-		return getClientSpringHibernateManager().findByIdNumber(idNumber);
+	
+	public List<Client> findClientsByIdNumber(String idNumber) {
+		return clientRepository.findClientsByIdNumber(idNumber);
 	}
-
-	@Override
-	@Transactional
-	public Client create(Client client) throws EntityException {
-		return getClientSpringHibernateManager().create(client);
+	
+	public Client save(Client client) {
+		return clientRepository.save(client);
 	}
-
-	@Override
-	@Transactional
-	public Client update(Client client) throws EntityException {
-		return getClientSpringHibernateManager().update(client);
+	
+	public void delete(Integer id) {
+		clientRepository.delete(id);
 	}
-
-	@Override
-	@Transactional
-	public void delete(Client client) throws EntityException {
-		getClientSpringHibernateManager().delete(client);
+	public void delete(Client client) {
+		clientRepository.delete(client);
 	}
 }

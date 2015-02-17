@@ -1,8 +1,15 @@
+<<<<<<< HEAD
+# Class Files #
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
 # Directories #
 /build/
 /bin/
 target/
-/.gradle/
  
 # OS Files #
 .DS_Store
@@ -70,3 +77,12 @@ local.properties
  
 # PDT-specific
 .buildpath
+.gradle
+=======
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+>>>>>>> c9f2480188177afb4426e118b84bcb4df936c590
