@@ -60,7 +60,7 @@ public class BasicConfig {
 	private Properties jpaProperties() {  
 	        Properties properties = new Properties();  
 	        
-	        properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");  // MySQL5InnoDBDialect   MySQLMyISAMDialect
+	        properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
 	        properties.put("hibernate.show_sql", "false");  
 	        return properties;  
 	}  

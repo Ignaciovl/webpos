@@ -19,14 +19,14 @@ public class ClientController {
 	@Autowired
 	private ClientService clientService;
 
-	@RequestMapping(value = "/clients/add")
+	@RequestMapping(value = "/clients/add", method = RequestMethod.GET)
 	public ModelAndView addClientPage() {
 		ModelAndView modelAndView = new ModelAndView("/view/add-client-form.jsp");
 		modelAndView.addObject("client", new Client());
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/clients/add/proccess")
+	@RequestMapping(value = "/clients/add", method = RequestMethod.POST)
 	public ModelAndView addingClient(@ModelAttribute Client client) {
 		ModelAndView modelAndView = new ModelAndView("/view/index.jsp");
 		clientService.save(client);
