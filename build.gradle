@@ -44,6 +44,7 @@ dependencies {
     
     compile 'postgresql:postgresql:9.1-901-1.jdbc4'
 	
+	compile 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.1'
 	compile 'javax.servlet:jstl:1.2'
 
 }
