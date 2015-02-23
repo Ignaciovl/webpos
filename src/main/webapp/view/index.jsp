@@ -7,11 +7,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Index</title>
 </head>
-<body>
-	<h1>Index</h1>
-	<p>
-		${message}<br />
-		<a href="${pageContext.request.contextPath}/clients/list.html">Clients Module</a>
-	</p>
+<body style="background-color: azure; font-family: Trebuchet MS">
+	<h1 style="color: cornflowerblue">Index</h1>
+	<p style = "color: darkslateblue">${message} </p>
+	<br />
+	<ul>
+		<li><a style="font-size: 18px; color: dodgerblue"
+			href="${pageContext.request.contextPath}/clients/list.html">Clients
+				Module</a></li>
+	</ul>
 </body>
 </html>

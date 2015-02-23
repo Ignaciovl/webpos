@@ -8,16 +8,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Edit client page</title>
 </head>
-<body>
-	<h1>Edit client page</h1>
-	<a href="${pageContext.request.contextPath}/index.html">Index</a>
+<body style = "background-color: azure; font-family: Trebuchet MS">
+	<h1 style = "color: cornflowerblue">Edit client page</h1>
+	<a style = "color: dodgerblue" href="${pageContext.request.contextPath}/index.html">Index</a>
 	<br/>
-	<p>Here you can edit the existing client.</p>
-	<p>${message}</p>
+	<p style = "color: darkslateblue">Here you can edit the existing client.</p>
+	<p style = "color: darkslateblue">${message}</p>
 	<form:form method="POST" commandName="client"
 		action="${pageContext.request.contextPath}/clients/edit/${client.id}.html">
 		<table>
-			<tbody>
+			<tbody style = "color: darkslateblue">
 				<tr>
 					<td>Name:</td>
 					<td><form:input path="name" /></td>
@@ -44,14 +44,14 @@
 					<td><form:errors path="address" cssClass="error" /></td>
 				</tr>
 				<tr>
-					<td><input type="submit" value="Edit" /></td>
+					<td style = "text-align: right"><input style = "color: darkslateblue" type="submit" value="Edit" /></td>
 					<td></td>
 				</tr>
 			</tbody>
 		</table>
 	</form:form>
 	<p>
-		<a href="${pageContext.request.contextPath}/clients/list.html">Return</a>
+		<a style = "color: dodgerblue" href="${pageContext.request.contextPath}/clients/list.html">Return</a>
 	</p>
 </body>
 </html>

@@ -8,15 +8,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Add client page</title>
 </head>
-<body>
-	<h1>Add client page</h1>
-	<a href="${pageContext.request.contextPath}/index.html">Index</a>
+<body style = "background-color: azure; font-family: Trebuchet MS">
+	<h1 style = "color: cornflowerblue">Add client page</h1>
+	<a style = "color: dodgerblue" href="${pageContext.request.contextPath}/index.html">Index</a>
 	<br/>
-	<p>Here you can add a new client</p>
+	<p style = "color: darkslateblue">Here you can add a new client</p>
 	<form:form method="POST" commandName="client"
 		action="${pageContext.request.contextPath}/clients/add.html">
 		<table>
-			<tbody>
+			<tbody style = "color: darkslateblue">
 				<tr>
 					<td>Name:</td>
 					<td><form:input path="name" /></td>
@@ -43,14 +43,14 @@
 					<td><form:errors path="address" cssClass="error" /></td>
 				</tr>
 				<tr>
-					<td><input type="submit" value="Add" /></td>
+					<td style = "text-align: right"><input style = "color: darkslateblue" type="submit" value="Add" /></td>
 					<td></td>
 				</tr>
 			</tbody>
 		</table>
 	</form:form>
 	<p>
-		<a href="${pageContext.request.contextPath}/clients/list.html">Return</a>
+		<a style = "color: dodgerblue" href="${pageContext.request.contextPath}/clients/list.html">Return</a>
 	</p>
 </body>
 </html>
