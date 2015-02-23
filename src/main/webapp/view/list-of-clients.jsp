@@ -14,7 +14,7 @@
 	<br/>
 	${message}
 	<br />
-	<p>Here you can see the list of the clients, edit or delete them.</p>
+	<p>Here you can see the list of clients, add a new client, edit or delete an existing one.</p>
 	<table border="1px" cellpadding="0" cellspacing="0">
 		<thead>
 			<tr>

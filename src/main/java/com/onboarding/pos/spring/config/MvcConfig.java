@@ -7,17 +7,21 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-@Configuration  
-@EnableWebMvc  
+@Configuration
+@EnableWebMvc
 @ComponentScan(basePackages = { "com.onboarding.pos.spring.controller" })
 public class MvcConfig extends WebMvcConfigurerAdapter {
+
+	private static final String VIEW_CONTROLLER = "/index.htm";
+	private static final String VIEW_NAME = "/view/index.jsp";
+
 	@Override
-    public void addViewControllers(final ViewControllerRegistry registry) {
-        registry.addViewController("/index.htm").setViewName("/view/index.jsp");
-    }
-	
+	public void addViewControllers(final ViewControllerRegistry registry) {
+		registry.addViewController(VIEW_CONTROLLER).setViewName(VIEW_NAME);
+	}
+
 	@Override
-    public void configureDefaultServletHandling(final DefaultServletHandlerConfigurer configurer) {
-        configurer.enable();
-    }
+	public void configureDefaultServletHandling(final DefaultServletHandlerConfigurer configurer) {
+		configurer.enable();
+	}
 }

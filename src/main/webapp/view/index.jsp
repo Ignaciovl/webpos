@@ -11,7 +11,7 @@
 	<h1>Index</h1>
 	<p>
 		${message}<br />
-		<h3><a href="${pageContext.request.contextPath}/clients/list.html">Clients Module</a></h3>
+		<a href="${pageContext.request.contextPath}/clients/list.html">Clients Module</a>
 	</p>
 </body>
 </html>

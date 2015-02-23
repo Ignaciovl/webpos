@@ -17,26 +17,32 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-/*
- ** config data source , entity manager here
- */
-
 @Configuration
 @EnableJpaRepositories(basePackages = { "com.onboarding.pos.spring.repository" })
 @EnableTransactionManagement
 @ComponentScan(basePackages = { "com.onboarding.pos.spring.service",
 		"com.onboarding.pos.spring.repository", "com.onboarding.pos.spring.controller" })
 public class BasicConfig {
+	
+	private static final String DATASOURCE_DRIVER = "org.postgresql.Driver";
+	private static final String DATASOURCE_URL =
+			"jdbc:postgresql://NI-NTB-064:5432/modelpos?autoReconnect=true";
+	private static final String DATASOURCE_USERNAME = "postgres";
+	private static final String DATASOURCE_PASSWORD = "postgres";
+	
+	private static final Object HIBERNATE_DIALECT = "org.hibernate.dialect.PostgreSQLDialect";
+	private static final Object SHOW_SQL = "false";
+	
 	@Autowired
 	private DataSource dataSource;
 
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("org.postgresql.Driver");
-		dataSource.setUrl("jdbc:postgresql://NI-NTB-064:5432/modelpos?autoReconnect=true");
-		dataSource.setUsername("postgres");
-		dataSource.setPassword("postgres");
+		dataSource.setDriverClassName(DATASOURCE_DRIVER);
+		dataSource.setUrl(DATASOURCE_URL);
+		dataSource.setUsername(DATASOURCE_USERNAME);
+		dataSource.setPassword(DATASOURCE_PASSWORD);
 
 		return dataSource;
 	}
@@ -49,7 +55,8 @@ public class BasicConfig {
 		vendorAdapter.setGenerateDdl(true);
 		vendorAdapter.setShowSql(false);
 
-		LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+		LocalContainerEntityManagerFactoryBean factory =
+				new LocalContainerEntityManagerFactoryBean();
 		factory.setJpaVendorAdapter(vendorAdapter);
 		factory.setPackagesToScan(getClass().getPackage().getName());
 		factory.setDataSource(dataSource());
@@ -61,8 +68,8 @@ public class BasicConfig {
 	private Properties jpaProperties() {
 		Properties properties = new Properties();
 
-		properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-		properties.put("hibernate.show_sql", "false");
+		properties.put("hibernate.dialect", HIBERNATE_DIALECT);
+		properties.put("hibernate.show_sql", SHOW_SQL);
 		return properties;
 	}
 

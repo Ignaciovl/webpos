@@ -5,8 +5,6 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-import org.apache.commons.lang3.Validate;
-
 @Embeddable
 public class InvoiceProductId implements Serializable {
 
@@ -38,12 +36,6 @@ public class InvoiceProductId implements Serializable {
 	}
 
 	public void setProductCode(String productCode) {
-		Validate.isTrue(productCode != null, "Product code cannot be null");
-		Validate.isTrue(!productCode.isEmpty(), "Product code cannot be empty");
-		Validate.isTrue(!productCode.trim().isEmpty(),
-				"Product code cannot be filled with blank space(s)");
-		Validate.isTrue(productCode.length() <= 10,
-				"Product code cannot be longer than 10 characters");
 		this.productCode = productCode;
 	}
 

@@ -14,32 +14,40 @@ import com.onboarding.pos.spring.repository.ClientRepository;
 public class ClientService {
 	
 	@Autowired
-	ClientRepository clientRepository;
+	private ClientRepository clientRepository;
 	
+	public ClientRepository getClientRepository() {
+		return clientRepository;
+	}
+
+	public void setClientRepository(final ClientRepository givenClientRepository) {
+		this.clientRepository = givenClientRepository;
+	}
+
 	public long count() {
-		return clientRepository.count();
+		return getClientRepository().count();
 	}
 	
 	public List<Client> findAll() {
-		return clientRepository.findAll();
+		return getClientRepository().findAll();
 	}
 	
-	public Client findOne(Integer id) {
-		return clientRepository.findOne(id);
+	public Client findOne(final Integer id) {
+		return getClientRepository().findOne(id);
 	}
 	
-	public List<Client> findClientsByIdNumber(String idNumber) {
-		return clientRepository.findClientsByIdNumber(idNumber);
+	public List<Client> findClientsByIdNumber(final String idNumber) {
+		return getClientRepository().findClientsByIdNumber(idNumber);
 	}
 	
-	public Client save(Client client) {
-		return clientRepository.save(client);
+	public Client save(final Client client) {
+		return getClientRepository().save(client);
 	}
 	
-	public void delete(Integer id) {
-		clientRepository.delete(id);
+	public void delete(final Integer id) {
+		getClientRepository().delete(id);
 	}
-	public void delete(Client client) {
-		clientRepository.delete(client);
+	public void delete(final Client client) {
+		getClientRepository().delete(client);
 	}
 }

@@ -22,7 +22,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.apache.commons.lang3.Validate;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
@@ -107,7 +106,6 @@ public class Invoice implements EntityWithIntId<Invoice> {
 	}
 
 	public void setCreated(Date created) {
-		Validate.isTrue(created != null, "Created date cannot be null");
 		this.created = created;
 	}
 
@@ -116,7 +114,6 @@ public class Invoice implements EntityWithIntId<Invoice> {
 	}
 
 	public void setEmployee(Employee employee) {
-		Validate.isTrue(employee != null, "Employee cannot be null");
 		this.employee = employee;
 	}
 
@@ -125,7 +122,6 @@ public class Invoice implements EntityWithIntId<Invoice> {
 	}
 
 	public void setClient(Client client) {
-		Validate.isTrue(client != null, "Client cannot be null");
 		this.client = client;
 	}
 
@@ -134,7 +130,6 @@ public class Invoice implements EntityWithIntId<Invoice> {
 	}
 
 	public void setStatus(InvoiceStatus status) {
-		Validate.isTrue(status != null, "Status cannot be null");
 		this.status = status;
 	}
 

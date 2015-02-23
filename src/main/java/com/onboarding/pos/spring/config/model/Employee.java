@@ -14,8 +14,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import org.apache.commons.lang3.Validate;
-
 @Entity
 @Table(name = "employee", uniqueConstraints = @UniqueConstraint(columnNames = "id_number"))
 public class Employee extends EntityWithIdNumber<Employee> {
@@ -70,8 +68,6 @@ public class Employee extends EntityWithIdNumber<Employee> {
 
 	public void setPosition(String position) {
 		
-		Validate.isTrue(position != null && !position.isEmpty() && !position.trim().isEmpty(),
-				"Invalid position");
 		this.position = position;
 	}
 

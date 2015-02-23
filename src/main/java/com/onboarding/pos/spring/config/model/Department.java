@@ -14,7 +14,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import org.apache.commons.lang3.Validate;
 
 @Entity
 @Table(name = "department", uniqueConstraints = @UniqueConstraint(columnNames = "code"))
@@ -72,10 +71,6 @@ public class Department implements EntityWithIntId<Department> {
 	}
 
 	public void setCode(String code) {
-		Validate.isTrue(code != null, "Department code cannot be null");
-		Validate.isTrue(!code.isEmpty(), "Department code cannot be empty");
-		Validate.isTrue(!code.trim().isEmpty(), "Department code cannot be filled with blank space(s)");
-		Validate.isTrue(code.length() <= 3, "Department code cannot be longer than 3 characters");
 		this.code = code;
 	}
 
@@ -84,10 +79,6 @@ public class Department implements EntityWithIntId<Department> {
 	}
 
 	public void setName(String name) {
-		Validate.isTrue(name != null, "Department name cannot be null");
-		Validate.isTrue(!name.isEmpty(), "Department name cannot be empty");
-		Validate.isTrue(!name.trim().isEmpty(), "Department name cannot be filled with blank space(s)");
-		Validate.isTrue(name.length() <= 30, "Department name cannot be longer than 30 characters");
 		this.name = name;
 	}
 	

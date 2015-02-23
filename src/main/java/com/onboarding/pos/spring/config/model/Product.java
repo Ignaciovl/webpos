@@ -2,8 +2,6 @@ package com.onboarding.pos.spring.config.model;
 
 import java.math.BigDecimal;
 
-import org.apache.commons.lang3.Validate;
-
 public class Product implements EntityWithIntId<Product> {
 
 	private int id;
@@ -45,7 +43,6 @@ public class Product implements EntityWithIntId<Product> {
 
 	@Override
 	public void setId(int id) {
-		Validate.isTrue(id > 0, "Product ID cannot be negative or zero");
 		this.id = id;
 	}
 
@@ -54,10 +51,6 @@ public class Product implements EntityWithIntId<Product> {
 	}
 
 	public void setCode(String code) {
-		Validate.isTrue(code != null, "Product code cannot be null");
-		Validate.isTrue(!code.isEmpty(), "Product code cannot be empty");
-		Validate.isTrue(!code.trim().isEmpty(), "Product code cannot be filled with blank space(s)");
-		Validate.isTrue(code.length() <= 10, "Product code cannot be longer than 10 characters");
 		this.code = code;
 	}
 
@@ -66,12 +59,6 @@ public class Product implements EntityWithIntId<Product> {
 	}
 
 	public void setName(String name) {
-		Validate.isTrue(name != null, "Product name cannot be null");
-		Validate.isTrue(!name.isEmpty(), "Product name cannot be empty");
-		Validate.isTrue(!name.trim().isEmpty(),
-				"Product name cannot be filled with blank space(s)");
-		Validate.isTrue(name.length() <= 50,
-				"Product name cannot be longer than 50 characters");
 		this.name = name;
 	}
 
@@ -80,12 +67,6 @@ public class Product implements EntityWithIntId<Product> {
 	}
 
 	public void setDepartmentCode(String departmentCode) {
-		Validate.isTrue(departmentCode != null, "Product department code cannot be null");
-		Validate.isTrue(!departmentCode.isEmpty(), "Product department code cannot be empty");
-		Validate.isTrue(!departmentCode.trim().isEmpty(),
-				"Product department code cannot be filled with blank space(s)");
-		Validate.isTrue(departmentCode.length() <= 3,
-				"Product department code cannot be longer than 3 characters");
 		this.departmentCode = departmentCode;
 	}
 
@@ -94,9 +75,6 @@ public class Product implements EntityWithIntId<Product> {
 	}
 
 	public void setPrice(BigDecimal price) {
-		Validate.isTrue(price != null, "Product price cannot be null");
-		Validate.isTrue(price.compareTo(BigDecimal.ZERO) == 1,
-				"Product price cannot be less than or equals to zero");
 		this.price = price;
 	}
 

@@ -14,8 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
 
-import org.apache.commons.lang3.Validate;
-
 @Entity
 @Table(name = "invoice_product")
 public class InvoiceProduct {
@@ -87,7 +85,6 @@ public class InvoiceProduct {
 	}
 
 	public void setDepartment(Department department) {
-		Validate.isTrue(department != null, "Department cannot be null");
 		this.department = department;
 	}
 
@@ -96,12 +93,6 @@ public class InvoiceProduct {
 	}
 
 	public void setProductName(String productName) {
-		Validate.isTrue(productName != null, "Product description cannot be null");
-		Validate.isTrue(!productName.isEmpty(), "Product description cannot be empty");
-		Validate.isTrue(!productName.trim().isEmpty(),
-				"Product description cannot be filled with blank space(s)");
-		Validate.isTrue(productName.length() <= 50,
-				"Product description cannot be longer than 50 characters");
 		this.productName = productName;
 	}
 
@@ -110,7 +101,6 @@ public class InvoiceProduct {
 	}
 
 	public void setQuantity(int quantity) {
-		Validate.isTrue(quantity > 0, "Quantity cannot be less than zero");
 		this.quantity = quantity;
 	}
 
@@ -119,9 +109,6 @@ public class InvoiceProduct {
 	}
 
 	public void setPrice(BigDecimal price) {
-		Validate.isTrue(price != null, "Price cannot be null");
-		Validate.isTrue(price.compareTo(BigDecimal.ZERO) == 1,
-				"Price cannot be less than or equals to zero");
 		this.price = price;
 	}
 
