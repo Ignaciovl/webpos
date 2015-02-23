@@ -13,8 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-
-import org.apache.commons.lang3.Validate;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "client", uniqueConstraints =
@@ -27,6 +27,8 @@ public class Client extends EntityWithIdNumber<Client> {
 	@GeneratedValue(strategy =
 	GenerationType.SEQUENCE, generator = "gen_client_id")
 	@Column(name = "id", unique = true, nullable = false)
+	@NotNull(message = "ID cannot be null")
+	@Min(0)
 	private int id;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
@@ -62,7 +64,6 @@ public class Client extends EntityWithIdNumber<Client> {
 	}
 
 	public void setId(final int newId) {
-		Validate.isTrue(newId >= 0, "Client ID cannot be negative");
 		this.id = newId;
 	}
 

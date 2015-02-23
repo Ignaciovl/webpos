@@ -18,17 +18,18 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /*
-** config data source , entity manager here
-*/
+ ** config data source , entity manager here
+ */
 
 @Configuration
-@EnableJpaRepositories( basePackages = {"com.onboarding.pos.spring.repository" })
+@EnableJpaRepositories(basePackages = { "com.onboarding.pos.spring.repository" })
 @EnableTransactionManagement
-@ComponentScan(basePackages = {"com.onboarding.pos.spring.service", "com.onboarding.pos.spring.repository", "com.onboarding.pos.spring.controller"})
+@ComponentScan(basePackages = { "com.onboarding.pos.spring.service",
+		"com.onboarding.pos.spring.repository", "com.onboarding.pos.spring.controller" })
 public class BasicConfig {
 	@Autowired
 	private DataSource dataSource;
-	
+
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -39,7 +40,7 @@ public class BasicConfig {
 
 		return dataSource;
 	}
-	
+
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 
@@ -56,14 +57,15 @@ public class BasicConfig {
 
 		return factory;
 	}
-	
-	private Properties jpaProperties() {  
-	        Properties properties = new Properties();  
-	        
-	        properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-	        properties.put("hibernate.show_sql", "false");  
-	        return properties;  
-	}  
+
+	private Properties jpaProperties() {
+		Properties properties = new Properties();
+
+		properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+		properties.put("hibernate.show_sql", "false");
+		return properties;
+	}
+
 	@Bean
 	public PlatformTransactionManager transactionManager() {
 
@@ -71,6 +73,4 @@ public class BasicConfig {
 		txManager.setEntityManagerFactory(entityManagerFactory().getObject());
 		return txManager;
 	}
-	
-	
 }

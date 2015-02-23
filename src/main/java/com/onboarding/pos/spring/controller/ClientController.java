@@ -3,8 +3,11 @@ package com.onboarding.pos.spring.controller;
 import java.util.Collections;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +31,10 @@ public class ClientController {
 	}
 
 	@RequestMapping(value = "/clients/add", method = RequestMethod.POST)
-	public ModelAndView addingClient(@ModelAttribute Client client) {
+	public ModelAndView addingClient(@ModelAttribute @Valid Client client, BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			return new ModelAndView("/view/add-client-form.jsp");
+		}
 		ModelAndView modelAndView = new ModelAndView("/view/list-of-clients.jsp");
 		clientService.save(client);
 		String message = "Client was successfully added";
@@ -56,8 +62,12 @@ public class ClientController {
 		return modelAndView;
 	}
 
+	//TODO fix error wth validation
 	@RequestMapping(value = "/clients/edit/{id}", method = RequestMethod.POST)
-	public ModelAndView editingClient(@ModelAttribute Client client, @PathVariable Integer id) {
+	public ModelAndView editingClient(@ModelAttribute @Valid Client client, @PathVariable Integer id, BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			return new ModelAndView("/view/edit-client-form.jsp");
+		}
 		ModelAndView modelAndView = new ModelAndView("/view/list-of-clients.jsp");
 		clientService.save(client);
 		String message = "Client was successfully edited";

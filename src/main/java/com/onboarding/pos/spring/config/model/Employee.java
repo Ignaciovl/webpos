@@ -81,7 +81,6 @@ public class Employee extends EntityWithIdNumber<Employee> {
 
 	public void setPassword(String newPassword) {
 		
-		validateString(newPassword, "password", 16);
 		this.password = newPassword;
 	}
 

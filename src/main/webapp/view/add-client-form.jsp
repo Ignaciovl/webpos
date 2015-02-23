@@ -20,22 +20,27 @@
 				<tr>
 					<td>Name:</td>
 					<td><form:input path="name" /></td>
+					<td><form:errors path="name" cssClass="error" /></td>
 				</tr>
 				<tr>
 					<td>Id Number:</td>
 					<td><form:input path="idNumber" /></td>
+					<td><form:errors path="idNumber" cssClass="error" /></td>
 				</tr>
 				<tr>
 					<td>Contact Number:</td>
 					<td><form:input path="contactNumber" /></td>
+					<td><form:errors path="contactNumber" cssClass="error" /></td>
 				</tr>
 				<tr>
 					<td>Email:</td>
 					<td><form:input path="email" /></td>
+					<td><form:errors path="email" cssClass="error" /></td>
 				</tr>
 				<tr>
 					<td>Address:</td>
 					<td><form:input path="address" /></td>
+					<td><form:errors path="address" cssClass="error" /></td>
 				</tr>
 				<tr>
 					<td><input type="submit" value="Add" /></td>
