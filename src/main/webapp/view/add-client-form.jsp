@@ -10,6 +10,8 @@
 </head>
 <body>
 	<h1>Add client page</h1>
+	<a href="${pageContext.request.contextPath}/index.html">Index</a>
+	<br/>
 	<p>Here you can add a new client</p>
 	<form:form method="POST" commandName="client"
 		action="${pageContext.request.contextPath}/clients/add.html">
@@ -43,7 +45,7 @@
 		</table>
 	</form:form>
 	<p>
-		<a href="${pageContext.request.contextPath}/index.html">Index</a>
+		<a href="${pageContext.request.contextPath}/clients/list.html">Return</a>
 	</p>
 </body>
 </html>

@@ -11,8 +11,7 @@
 	<h1>Index</h1>
 	<p>
 		${message}<br />
-		<h3><a href="${pageContext.request.contextPath}/clients/add.html">Add new client</a></h3>
-		<h3><a href="${pageContext.request.contextPath}/clients/list.html">Clients list</a></h3>
+		<h3><a href="${pageContext.request.contextPath}/clients/list.html">Clients Module</a></h3>
 	</p>
 </body>
 </html>

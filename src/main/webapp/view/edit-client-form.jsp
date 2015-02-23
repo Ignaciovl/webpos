@@ -10,6 +10,8 @@
 </head>
 <body>
 	<h1>Edit client page</h1>
+	<a href="${pageContext.request.contextPath}/index.html">Index</a>
+	<br/>
 	<p>Here you can edit the existing client.</p>
 	<p>${message}</p>
 	<form:form method="POST" commandName="client"
@@ -44,7 +46,7 @@
 		</table>
 	</form:form>
 	<p>
-		<a href="${pageContext.request.contextPath}/index.html">Index</a>
+		<a href="${pageContext.request.contextPath}/clients/list.html">Return</a>
 	</p>
 </body>
 </html>

@@ -46,7 +46,10 @@ dependencies {
 	
 	compile 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.1'
 	compile 'javax.servlet:jstl:1.2'
+	compile 'org.apache.commons:commons-lang3:3.3.2'
 
+	testCompile "org.mockito:mockito-core:1.+"
+	testCompile 'junit:junit:4.11'
 }
 
 eclipse {

@@ -1,5 +1,6 @@
 package com.onboarding.pos.spring.controller;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +29,13 @@ public class ClientController {
 
 	@RequestMapping(value = "/clients/add", method = RequestMethod.POST)
 	public ModelAndView addingClient(@ModelAttribute Client client) {
-		ModelAndView modelAndView = new ModelAndView("/view/index.jsp");
+		ModelAndView modelAndView = new ModelAndView("/view/list-of-clients.jsp");
 		clientService.save(client);
 		String message = "Client was successfully added";
 		modelAndView.addObject("message", message);
+		List<Client> clients = clientService.findAll();
+		Collections.sort(clients);
+		modelAndView.addObject("clients", clients);
 		return modelAndView;
 	}
 
@@ -39,6 +43,7 @@ public class ClientController {
 	public ModelAndView listOfClients() {
 		ModelAndView modelAndView = new ModelAndView("/view/list-of-clients.jsp");
 		List<Client> clients = clientService.findAll();
+		Collections.sort(clients);
 		modelAndView.addObject("clients", clients);
 		return modelAndView;
 	}
@@ -53,19 +58,25 @@ public class ClientController {
 
 	@RequestMapping(value = "/clients/edit/{id}", method = RequestMethod.POST)
 	public ModelAndView editingClient(@ModelAttribute Client client, @PathVariable Integer id) {
-		ModelAndView modelAndView = new ModelAndView("/view/index.jsp");
+		ModelAndView modelAndView = new ModelAndView("/view/list-of-clients.jsp");
 		clientService.save(client);
 		String message = "Client was successfully edited";
 		modelAndView.addObject("message", message);
+		List<Client> clients = clientService.findAll();
+		Collections.sort(clients);
+		modelAndView.addObject("clients", clients);
 		return modelAndView;
 	}
 
 	@RequestMapping(value = "/clients/delete/{id}", method = RequestMethod.GET)
 	public ModelAndView deleteClient(@PathVariable Integer id) {
-		ModelAndView modelAndView = new ModelAndView("/view/index.jsp");
+		ModelAndView modelAndView = new ModelAndView("/view/list-of-clients.jsp");
 		clientService.delete(id);
 		String message = "Client was successfully deleted";
 		modelAndView.addObject("message", message);
+		List<Client> clients = clientService.findAll();
+		Collections.sort(clients);
+		modelAndView.addObject("clients", clients);
 		return modelAndView;
 	}
 }

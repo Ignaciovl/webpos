@@ -10,6 +10,10 @@
 </head>
 <body>
 	<h1>List of clients</h1>
+	<a href="${pageContext.request.contextPath}/index.html">Index</a>
+	<br/>
+	${message}
+	<br />
 	<p>Here you can see the list of the clients, edit or delete them.</p>
 	<table border="1px" cellpadding="0" cellspacing="0">
 		<thead>
@@ -33,14 +37,17 @@
 					<td>${client.contactNumber}</td>
 					<td>${client.email}</td>
 					<td>${client.address}</td>
-					<td><a href="${pageContext.request.contextPath}/clients/edit/${client.id}.html">Edit</a></td>
-					<td><a href="${pageContext.request.contextPath}/clients/delete/${client.id}.html">Delete</a></td>
+					<td><a
+						href="${pageContext.request.contextPath}/clients/edit/${client.id}.html">Edit</a></td>
+					<td><a
+						href="${pageContext.request.contextPath}/clients/delete/${client.id}.html">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 	<p>
-		<a href="${pageContext.request.contextPath}/index.html">Index</a>
+		<a href="${pageContext.request.contextPath}/clients/add.html">Add
+			new client</a>
 	</p>
 </body>
 </html>
