@@ -13,18 +13,19 @@ import com.onboarding.pos.spring.config.BasicConfig;
 import com.onboarding.pos.spring.config.MvcConfig;
 
 public class WebInitializer implements WebApplicationInitializer {
+	
 	@Override
 	public void onStartup(final ServletContext servletContext) throws ServletException {
-		AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
+		AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
 
-		ctx.register(BasicConfig.class, MvcConfig.class);
-		servletContext.addListener(new ContextLoaderListener(ctx));
+		context.register(BasicConfig.class, MvcConfig.class);
+		servletContext.addListener(new ContextLoaderListener(context));
 
-		AnnotationConfigWebApplicationContext dispatchCtx =
+		AnnotationConfigWebApplicationContext dispatcherContext =
 				new AnnotationConfigWebApplicationContext();
 		ServletRegistration.Dynamic dispatcher;
 
-		dispatcher = servletContext.addServlet("dispatcher", new DispatcherServlet(dispatchCtx));
+		dispatcher = servletContext.addServlet("dispatcher", new DispatcherServlet(dispatcherContext));
 		dispatcher.setLoadOnStartup(1);
 		dispatcher.addMapping("/");
 	}

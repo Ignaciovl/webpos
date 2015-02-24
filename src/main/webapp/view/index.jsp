@@ -5,17 +5,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/stylesheet.css" />
 <title>Index</title>
 </head>
-<body style="background-color: azure; font-family: Trebuchet MS">
+<body>
 	<img
 		src="https://getonbrd-prod.s3.amazonaws.com/uploads/users/logo/1804/Logo.png"
 		height="120" width="120" />
-	<h1 style="color: cornflowerblue">Index</h1>
-	<p style="color: darkslateblue">${message}</p>
+	<h1>Index</h1>
+	<p>${message}</p>
 	<br />
 	<ul>
-		<li><a style="font-size: 18px; color: dodgerblue"
+		<li><a style="font-size: 18px"
 			href="${pageContext.request.contextPath}/clients/list.html">Clients
 				Module</a></li>
 	</ul>

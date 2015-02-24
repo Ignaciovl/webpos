@@ -52,16 +52,20 @@ public class ClientController {
 	@RequestMapping(value = ADD_CLIENTS_PATH, method = RequestMethod.POST)
 	public ModelAndView addingClient(@ModelAttribute @Valid final Client client,
 			final BindingResult bindingResult) {
+		
 		if (bindingResult.hasErrors()) {
 			return new ModelAndView(ADD_CLIENTS_VIEW);
 		}
 		ModelAndView modelAndView = new ModelAndView(CLIENTS_LIST_VIEW);
 		getClientService().save(client);
+		
 		String message = "Client was successfully added";
 		modelAndView.addObject("message", message);
+		
 		List<Client> clients = getClientService().findAll();
 		Collections.sort(clients);
 		modelAndView.addObject("clients", clients);
+		
 		return modelAndView;
 	}
 

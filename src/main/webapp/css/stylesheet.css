@@ -1,0 +1,29 @@
+body {
+	background-color: #F0FFFF;
+	font-family: Trebuchet MS;
+}
+
+h1 {
+	color: #6495ED;
+}
+
+p {
+	color: #483D8B;
+}
+
+a {
+	color: #1E90FF;
+	text-decoration: none;
+}
+
+tbody {
+	color: #483D8B;
+}
+
+th {
+	color: #483D8B;
+}
+
+input {
+	color: #483D8B;
+}

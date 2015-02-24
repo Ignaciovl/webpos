@@ -52,7 +52,7 @@ public class BasicConfig {
 
 		HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		vendorAdapter.setDatabase(Database.POSTGRESQL);
-		vendorAdapter.setGenerateDdl(true);
+		vendorAdapter.setGenerateDdl(false);
 		vendorAdapter.setShowSql(false);
 
 		LocalContainerEntityManagerFactoryBean factory =
@@ -76,8 +76,8 @@ public class BasicConfig {
 	@Bean
 	public PlatformTransactionManager transactionManager() {
 
-		JpaTransactionManager txManager = new JpaTransactionManager();
-		txManager.setEntityManagerFactory(entityManagerFactory().getObject());
-		return txManager;
+		JpaTransactionManager transactionManager = new JpaTransactionManager();
+		transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
+		return transactionManager;
 	}
 }
