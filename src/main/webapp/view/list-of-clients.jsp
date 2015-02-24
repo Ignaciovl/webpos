@@ -8,45 +8,51 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>List of clients</title>
 </head>
-<body style = "background-color: azure; font-family: Trebuchet MS">
-	<h1 style = "color: cornflowerblue">List of clients</h1>
-	<a style = "color: dodgerblue" href="${pageContext.request.contextPath}/index.html">Index</a>
-	<br/>
-	<p style = "color: darkslateblue"> ${message} </p>
+<body style="background-color: azure; font-family: Trebuchet MS">
+	<img
+		src="https://getonbrd-prod.s3.amazonaws.com/uploads/users/logo/1804/Logo.png"
+		height="120" width="120" />
+	<h1 style="color: cornflowerblue">List of clients</h1>
+	<a style="color: dodgerblue"
+		href="${pageContext.request.contextPath}/index.html">Index</a>
 	<br />
-	<p style = "color: darkslateblue">Here you can see the list of clients, add a new client, edit or delete an existing one.</p>
+	<p style="color: darkslateblue">${message}</p>
+	<br />
+	<p style="color: darkslateblue">Here you can see the list of
+		clients, add a new client, edit or delete an existing one.</p>
 	<table border="1px" cellpadding="0" cellspacing="0">
 		<thead>
 			<tr>
-				<th style = "color: darkslateblue" width="10%">Id</th>
-				<th style = "color: darkslateblue" width="25%">Name</th>
-				<th style = "color: darkslateblue" width="15%">Id Number</th>
-				<th style = "color: darkslateblue" width="15%">Contact Number</th>
-				<th style = "color: darkslateblue" width="20%">Email</th>
-				<th style = "color: darkslateblue" width="20%">Address</th>
-				<th style = "color: darkslateblue" width="10%">Edit</th>
-				<th style = "color: darkslateblue" width="10%">Delete</th>
+				<th style="color: darkslateblue" width="10%">Id</th>
+				<th style="color: darkslateblue" width="25%">Name</th>
+				<th style="color: darkslateblue" width="15%">Id Number</th>
+				<th style="color: darkslateblue" width="15%">Contact Number</th>
+				<th style="color: darkslateblue" width="20%">Email</th>
+				<th style="color: darkslateblue" width="20%">Address</th>
+				<th style="color: darkslateblue" width="10%">Edit</th>
+				<th style="color: darkslateblue" width="10%">Delete</th>
 			</tr>
 		</thead>
-		<tbody style = "color: darkslateblue">
+		<tbody style="color: darkslateblue">
 			<c:forEach var="client" items="${clients}">
 				<tr>
-					<td >${client.id}</td>
+					<td>${client.id}</td>
 					<td>${client.name}</td>
 					<td>${client.idNumber}</td>
 					<td>${client.contactNumber}</td>
 					<td>${client.email}</td>
 					<td>${client.address}</td>
-					<td><a style = "color: dodgerblue"
+					<td><a style="color: dodgerblue"
 						href="${pageContext.request.contextPath}/clients/edit/${client.id}.html">Edit</a></td>
-					<td><a style = "color: dodgerblue"
+					<td><a style="color: dodgerblue"
 						href="${pageContext.request.contextPath}/clients/delete/${client.id}.html">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 	<p>
-		<a style = "color: dodgerblue" href="${pageContext.request.contextPath}/clients/add.html">Add
+		<a style="color: dodgerblue"
+			href="${pageContext.request.contextPath}/clients/add.html">Add
 			new client</a>
 	</p>
 </body>

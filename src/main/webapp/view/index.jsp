@@ -8,8 +8,11 @@
 <title>Index</title>
 </head>
 <body style="background-color: azure; font-family: Trebuchet MS">
+	<img
+		src="https://getonbrd-prod.s3.amazonaws.com/uploads/users/logo/1804/Logo.png"
+		height="120" width="120" />
 	<h1 style="color: cornflowerblue">Index</h1>
-	<p style = "color: darkslateblue">${message} </p>
+	<p style="color: darkslateblue">${message}</p>
 	<br />
 	<ul>
 		<li><a style="font-size: 18px; color: dodgerblue"
