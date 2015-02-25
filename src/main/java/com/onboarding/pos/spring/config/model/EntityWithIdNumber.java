@@ -3,6 +3,7 @@ package com.onboarding.pos.spring.config.model;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
@@ -19,11 +20,12 @@ public abstract class EntityWithIdNumber<T> extends EntityWithName<T> {
 
 	@Column(name = "contact_number")
 	@Size(max = 15, message = "Contact Number cannot be longer than 15 characters")
+	@Pattern(regexp = "^$|^\\+(?:[0-9] ?){6,14}[0-9]$", message = "Invalid contact number")
 	private String contactNumber;
 
 	@Column(name = "email")
 	@Size(max = 50, message = "Email cannot be longer than 50 characters")
-	@Email(message = "Invalid email")
+	@Email( message = "Invalid email")
 	private String email;
 
 	@Column(name = "address")
