@@ -27,7 +27,7 @@
 					<td><form:input path="name" /></td>
 					<td><form:errors path="name" cssClass="error" /></td>
 				</tr>
-				<tr>
+				<tr style = "display: none">
 					<td>Id Number:</td>
 					<td><form:input path="idNumber" /></td>
 					<td><form:errors path="idNumber" cssClass="error" /></td>
