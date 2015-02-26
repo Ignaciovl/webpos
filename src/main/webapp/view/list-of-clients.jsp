@@ -46,7 +46,8 @@
 					<td><a
 						href="${pageContext.request.contextPath}/clients/edit/${client.id}.html">Edit</a></td>
 					<td><a
-						href="${pageContext.request.contextPath}/clients/delete/${client.id}.html">Delete</a></td>
+						href="${pageContext.request.contextPath}/clients/delete/${client.id}.html"
+						onclick="return confirm('Delete Client ${client.idNumber}?')">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

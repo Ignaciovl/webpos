@@ -18,7 +18,8 @@
 	<br />
 	<p>Here you can add a new client</p>
 	<form:form method="POST" commandName="client"
-		action="${pageContext.request.contextPath}/clients/add.html">
+		action="${pageContext.request.contextPath}/clients/add.html"
+		onsubmit="return confirm('Add Client ${client.idNumber}?');">
 		<table>
 			<tbody>
 				<tr>

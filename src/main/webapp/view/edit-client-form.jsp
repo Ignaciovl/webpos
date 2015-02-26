@@ -19,7 +19,8 @@
 	<p>Here you can edit the existing client.</p>
 	<p>${message}</p>
 	<form:form method="POST" commandName="client"
-		action="${pageContext.request.contextPath}/clients/edit/${client.id}.html">
+		action="${pageContext.request.contextPath}/clients/edit/${client.id}.html"
+		onsubmit="return confirm('Edit Client ${client.idNumber}?');">
 		<table>
 			<tbody>
 				<tr>
